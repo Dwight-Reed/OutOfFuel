@@ -16,8 +16,8 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 mousePos = Input.mousePosition;
-        Vector3 objectPos = Camera.main.WorldToScreenPoint (transform.position);
+        Vector2 mousePos = Input.mousePosition;
+        Vector2 objectPos = Camera.main.WorldToScreenPoint (transform.position);
         mousePos.x = mousePos.x - objectPos.x;
         mousePos.y = mousePos.y - objectPos.y;
 
@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
         {
             GameObject proj = Instantiate(projectile, transform.position, transform.rotation);
             Rigidbody2D projrb = proj.GetComponent<Rigidbody2D>();
-            projrb.velocity = new Vector2(rb.velocity.x + projrb.velocity.x, rb.velocity.y + projrb.velocity.y);
+            // projrb.velocity = new Vector2(rb.velocity.x + projrb.velocity.x, rb.velocity.y + projrb.velocity.y);
             rb.AddForce(-transform.up, ForceMode2D.Impulse);
         }
 
