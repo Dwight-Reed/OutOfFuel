@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class ScreenWrap : MonoBehaviour
 {
-    private float halfScreenWidth;
-    private float halfScreenHeight;
-    private bool isClone;
+    private float screenWidth;
+    private float screenHeight;
+    public bool isClone;
     private SpriteRenderer sr;
     private GameObject horizontalClone;
     private GameObject verticalClone;
@@ -18,8 +18,8 @@ public class ScreenWrap : MonoBehaviour
         if (!isClone)
         {
             mainCamera = Camera.main;
-            halfScreenHeight = mainCamera.orthographicSize;
-            halfScreenWidth = mainCamera.orthographicSize * mainCamera.aspect;
+            screenHeight = mainCamera.orthographicSize * 2;
+            screenWidth = mainCamera.orthographicSize * mainCamera.aspect * 2;
             sr = GetComponent<SpriteRenderer>();
 
             horizontalClone = Instantiate<GameObject>(gameObject);
@@ -40,22 +40,22 @@ public class ScreenWrap : MonoBehaviour
         if (!isClone)
         {
             // Teleport object to other side if its position is out of bounds
-            if (transform.position.x > halfScreenWidth)
+            if (transform.position.x > screenWidth / 2)
             {
-                transform.position = new Vector2(transform.position.x - halfScreenWidth * 2, transform.position.y);
+                transform.position = new Vector2(transform.position.x - screenWidth, transform.position.y);
             }
-            else if (transform.position.x < -halfScreenWidth)
+            else if (transform.position.x < -screenWidth / 2)
             {
-                transform.position = new Vector2(transform.position.x + halfScreenWidth * 2, transform.position.y);
+                transform.position = new Vector2(transform.position.x + screenWidth, transform.position.y);
             }
 
-            if (transform.position.y > halfScreenHeight)
+            if (transform.position.y > screenHeight / 2)
             {
-                transform.position = new Vector2(transform.position.x, transform.position.y - halfScreenHeight * 2);
+                transform.position = new Vector2(transform.position.x, transform.position.y - screenHeight);
             }
-            else if (transform.position.y < -halfScreenHeight)
+            else if (transform.position.y < -screenHeight / 2)
             {
-                transform.position = new Vector2(transform.position.x, transform.position.y + halfScreenHeight * 2);
+                transform.position = new Vector2(transform.position.x, transform.position.y + screenHeight);
             }
 
             // create clones of the object's sprite on the opposite border if it's partially out of bounds
@@ -64,28 +64,28 @@ public class ScreenWrap : MonoBehaviour
             cornerClone.SetActive(true);
 
             // Right edge
-            if (transform.position.x + sr.bounds.size.x / 2 > halfScreenWidth)
+            if (transform.position.x + sr.bounds.size.x / 2 > screenWidth / 2)
             {
-                horizontalClone.transform.position = new Vector2(transform.position.x - halfScreenWidth * 2, transform.position.y);
+                horizontalClone.transform.position = new Vector2(transform.position.x - screenWidth, transform.position.y);
             }
             // Left edge
-            else if (transform.position.x - sr.bounds.size.x / 2 < -halfScreenWidth)
+            else if (transform.position.x - sr.bounds.size.x / 2 < -screenWidth / 2)
             {
-                horizontalClone.transform.position = new Vector2(transform.position.x + halfScreenWidth * 2, transform.position.y);
+                horizontalClone.transform.position = new Vector2(transform.position.x + screenWidth, transform.position.y);
             }
             else
             {
                 horizontalClone.SetActive(false);
             }
             // Top edge
-            if (transform.position.y + sr.bounds.size.y / 2 > halfScreenHeight)
+            if (transform.position.y + sr.bounds.size.y / 2 > screenHeight / 2)
             {
-                verticalClone.transform.position = new Vector2(transform.position.x, transform.position.y - halfScreenHeight * 2);
+                verticalClone.transform.position = new Vector2(transform.position.x, transform.position.y - screenHeight);
             }
             // Bottom edge
-            else if (transform.position.y - sr.bounds.size.y / 2 < -halfScreenHeight)
+            else if (transform.position.y - sr.bounds.size.y / 2 < -screenHeight / 2)
             {
-                verticalClone.transform.position = new Vector2(transform.position.x, transform.position.y + halfScreenHeight * 2);
+                verticalClone.transform.position = new Vector2(transform.position.x, transform.position.y + screenHeight);
             }
             else
             {
@@ -101,5 +101,12 @@ public class ScreenWrap : MonoBehaviour
                 cornerClone.SetActive(false);
             }
         }
+    }
+
+    private void OnDestroy()
+    {
+        Destroy(horizontalClone);
+        Destroy(verticalClone);
+        Destroy(cornerClone);
     }
 }
