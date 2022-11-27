@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb;
     private ScreenWrap sw;
     public GameObject projectile;
+    public int hitPoints;
     public float rotationOffset;
     // Start is called before the first frame update
     void Start()
@@ -20,6 +22,7 @@ public class Player : MonoBehaviour
     {
         if (!sw.isClone)
             {
+                // Point the player towards the mouse
             Vector2 mousePos = Input.mousePosition;
             Vector2 objectPos = Camera.main.WorldToScreenPoint (transform.position);
             mousePos.x = mousePos.x - objectPos.x;
@@ -31,20 +34,27 @@ public class Player : MonoBehaviour
             if (Input.GetButtonDown("Fire1"))
             {
                 GameObject proj = Instantiate(projectile, transform.position, transform.rotation);
-                Rigidbody2D projrb = proj.GetComponent<Rigidbody2D>();
+                // TODO: remove?
+                // add velocity of ship to projectile
+                // Rigidbody2D projrb = proj.GetComponent<Rigidbody2D>();
                 // projrb.velocity = new Vector2(rb.velocity.x + projrb.velocity.x, rb.velocity.y + projrb.velocity.y);
                 rb.AddForce(-transform.up, ForceMode2D.Impulse);
             }
         }
-
-    void OnCollisionEnter2D(Collision collision) {
-        print("collide");
-        if (collision.gameObject.name == "Border")
-        {
-            Debug.Log(collision.contacts[0].ToString() + " " + collision.contacts[1].ToString());
-            // rb.AddForce(collision.contacts)
-        }
     }
 
-    }
+    // // TODO: test if inactive objects trigger collision
+    // void OnTriggerEnter2D(Collider2D collider)
+    // {
+    //     try
+    //     {
+    //         Debug.Log(collider);
+    //         sw.realObject.GetComponent<Enemy>().hitPoints -= collider.GetComponent<Projectile>().damage;
+    //         Destroy(collider.gameObject);
+    //     }
+    //     catch (Exception e)
+    //     {
+    //         Debug.Log(e);
+    //     }
+    // }
 }

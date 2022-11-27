@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 5771749801643281397}
   - component: {fileID: 5623852765953200627}
   - component: {fileID: -5511731751213067149}
+  - component: {fileID: 2188093915676509472}
   - component: {fileID: 8257126826927210353}
   - component: {fileID: 5721532910805478369}
-  - component: {fileID: 2188093915676509472}
   m_Layer: 0
   m_Name: Projectile
   m_TagString: Untagged
@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1207429608111767478}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.9035538, y: -0.02329601, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -109,31 +109,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8257126826927210353
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1207429608111767478}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e90452d6abd93bac91412286afe86e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  initialVelocity: 5
---- !u!114 &5721532910805478369
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1207429608111767478}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85b12eff8662c534d8ecc628660e6ba6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!70 &2188093915676509472
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -150,3 +125,33 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.99999994, y: 1.9999999}
   m_Direction: 0
+--- !u!114 &8257126826927210353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1207429608111767478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e90452d6abd93bac91412286afe86e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  initialVelocity: 2
+  friendlyFire: 0
+--- !u!114 &5721532910805478369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1207429608111767478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85b12eff8662c534d8ecc628660e6ba6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isClone: 0
+  maxWraps: 2
+  realObject: {fileID: 0}
