@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  initialVelocity: 2
+  initialVelocity: 5
   friendlyFire: 0
   owner: {fileID: 0}
 --- !u!114 &5721532910805478369

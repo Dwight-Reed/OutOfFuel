@@ -40,12 +40,15 @@ public class Projectile : MonoBehaviour
             }
         } else {
             try {
-                Health health = collider.GetComponent<Health>();
-                health.hitPoints -= damage;
-                if (health.hitPoints <= 0) {
-                    Destroy(health.gameObject);
+                if (collider.GetComponent<Enemy>()) {
+
+                    Health health = collider.GetComponent<Health>();
+                    health.hitPoints -= damage;
+                    if (health.hitPoints <= 0) {
+                        Destroy(health.gameObject);
+                    }
+                Destroy(gameObject);
                 }
-                // Destroy(gameObject);
 
             } catch (System.Exception) {
 

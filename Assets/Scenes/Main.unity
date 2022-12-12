@@ -317,6 +317,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8611207162976029826, guid: f380d1b333834912b97c716b24ae6e61, type: 3}
+      propertyPath: hitPoints
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 97325105799370234, guid: f380d1b333834912b97c716b24ae6e61, type: 3}
       propertyPath: score
       value: 
