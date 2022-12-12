@@ -140,6 +140,7 @@ MonoBehaviour:
   damage: 1
   initialVelocity: 2
   friendlyFire: 0
+  owner: {fileID: 0}
 --- !u!114 &5721532910805478369
 MonoBehaviour:
   m_ObjectHideFlags: 0

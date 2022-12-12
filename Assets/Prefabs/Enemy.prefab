@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -307278755989665662}
   - component: {fileID: 678281964984113543}
   - component: {fileID: 3289257666467376049}
+  - component: {fileID: 2816730495487573520}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -137,7 +138,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3826b057600fa006afe9c309882b5f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPoints: 5
+  player: {fileID: 97325105799370234, guid: f380d1b333834912b97c716b24ae6e61, type: 3}
+  projectile: {fileID: 1207429608111767478, guid: 85c5e9f046e83b56cb51a650a884fe46, type: 3}
+  fireRate: 3
+  score: {fileID: 0}
 --- !u!114 &3289257666467376049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,3 +154,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56e3e5cccf6543e4199ac24047adec84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2816730495487573520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 678281964984113538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aff78671f28c6415ba4407ccb97c0ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitPoints: 5

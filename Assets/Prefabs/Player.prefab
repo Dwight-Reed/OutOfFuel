@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2942931257628640383}
   - component: {fileID: 4533640909410349441}
   - component: {fileID: 1977837272186451240}
+  - component: {fileID: -8611207162976029826}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -101,7 +102,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 1207429608111767478, guid: 85c5e9f046e83b56cb51a650a884fe46, type: 3}
-  hitPoints: 100
   rotationOffset: -90
 --- !u!50 &2942931257628640383
 Rigidbody2D:
@@ -134,7 +134,7 @@ BoxCollider2D:
   m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.21133333}
@@ -165,3 +165,16 @@ MonoBehaviour:
   isClone: 0
   maxWraps: -1
   realObject: {fileID: 0}
+--- !u!114 &-8611207162976029826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4654319313705377031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aff78671f28c6415ba4407ccb97c0ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitPoints: 100

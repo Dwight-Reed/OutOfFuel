@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
     private Rigidbody2D rb;
     private ScreenWrap sw;
     public GameObject projectile;
-    public int hitPoints;
     public float rotationOffset;
     // Start is called before the first frame update
     void Start()
@@ -33,13 +33,13 @@ public class Player : MonoBehaviour
             if (Input.GetButtonDown("Fire1"))
             {
                 GameObject proj = Instantiate(projectile, transform.position, transform.rotation);
-                // TODO: remove?
-                // add velocity of ship to projectile
-                // Rigidbody2D projrb = proj.GetComponent<Rigidbody2D>();
-                // projrb.velocity = new Vector2(rb.velocity.x + projrb.velocity.x, rb.velocity.y + projrb.velocity.y);
                 rb.AddForce(-transform.up, ForceMode2D.Impulse);
             }
         }
+    }
+    private void OnDestroy() {
+        Debug.Log("next scene");
+        SceneManager.LoadScene("End");
     }
 
     // // TODO: test if inactive objects trigger collision
